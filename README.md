@@ -1,16 +1,13 @@
-The repository for buildroot(Assignment-4) is https://github.com/cu-ecen-5013/assignment-4-buildroot-surajthite
+This repository contains custom character driver designed to read the device file and revert back to the user space implementing circular buffer and a multi-threaded socket server accepting multiple incomming connections and updating the device file in the user space. 
 
-# aesd-assignments
-This repo contains public starter source code, scripts, and documentation for AESD assignments
+# aesd-char-driver
+This folder contains the character driver developed and implemented using C. Unit Test cases are also written along with scripts to load and unload the module. 
 
-## Setting Up Git
+# server
+This folder consists of C files for designed socket server which implements multi-threading to manage multiple clients. Mutexes are used to provide mutual exclusion to access the device file along with POSIX queues to manage threads upon reception of the termination signals. 
 
-Use the instructions at [Setup Git](https://help.github.com/en/articles/set-up-git) to perform initial git setup steps. For AESD you will want to perform these steps inside your Linux virtual machine, since this is where you will be doing your development work.
+The  sockettest.sh tests the socket server while the drivertest.sh tests the character drivers.
 
-## Setting up SSH keys
+The above binaries have been cross compiled for aarch64 system and emulated on QEMU. 
 
-This step is optional but will save you from needing to enter your password every time you interact with the git server.  See instructions in [Connecting to GitHub with SSH](https://help.github.com/en/articles/connecting-to-github-with-ssh)
-
-## Specific Assignment Instructions
-
-Some assignments require further setup to pull in example code or make other changes to your repository before starting.  In this case, see the github classroom assignment start instructions linked from the assignment document for details about how to use this repository.
+Simply use the makefile in the parent directory inorder to build the binaries and test them using the test scripts.

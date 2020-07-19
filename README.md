@@ -1,4 +1,4 @@
-# Overview of the Project
+# Project Overview
 
 This repository contains custom character driver designed to read the device file and revert back to the user space implementing circular buffer and a multi-threaded socket server accepting multiple incomming connections and updating the device file in the user space. 
 
